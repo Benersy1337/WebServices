@@ -1,6 +1,8 @@
-const contacts = [
+const { v4 } = require("uuid");
+
+let contacts = [
     {
-        id: 1,
+        id: v4(),
         name: 'Joao',
         email: 'joao@gmail.com',
         phone: '3424656',
@@ -54,7 +56,7 @@ class ContactsRepository{
                 name,
                 email,
                 phone,
-                createdAt,
+                createdAt: new Date().toLocaleString(),
             };
 
             contacts.push(newContact);
@@ -70,7 +72,7 @@ class ContactsRepository{
                 name,
                 email,
                 phone,
-                createdAt,
+                createdAt: new Date().toLocaleString(),
             };
 
             contacts = contacts.map((contact) => (

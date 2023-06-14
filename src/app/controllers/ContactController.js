@@ -29,19 +29,19 @@ class ContactController {
         // Criar um novo registro
         const {name, email, phone, createdAt} = request.body;
 
-        const contactExists = await ContactsRepository.findByEmail(email);
+        // const contactExists = await ContactsRepository.findByEmail(email);
 
-        if(contactExists && !name){
-            return response.status(400).json({ error: 'This e-mail is already been taken and Name is Required'});
-        }
+        // if(contactExists && !name){
+        //     return response.status(400).json({ error: 'This e-mail is already been taken and Name is Required'});
+        // }
 
-        if(!name){
-            return response.status(400).json({ error: 'Name is Required'});
-        }
+        // if(!name){
+        //     return response.status(400).json({ error: 'Name is Required'});
+        // }
 
-        if (contactExists){
-            return response.status(400).json({ error: 'This e-mail is already been taken'});
-        }
+        // if (contactExists){
+        //     return response.status(400).json({ error: 'This e-mail is already been taken'});
+        // }
 
         const contact = await ContactsRepository.create({
             name, email, phone, createdAt,
@@ -83,6 +83,7 @@ class ContactController {
         // Deletar um registro
 
         const { id } = request.params;
+
 
         const contact = await ContactsRepository.findById(id);
         
