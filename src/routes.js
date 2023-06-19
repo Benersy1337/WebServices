@@ -14,6 +14,7 @@ router.post('/contacts', ContactController.store);
 
 router.put('/contacts/:id', ContactController.update);
 
+router.get('/contacts', ContactController.getByDate);
 
 
 module.exports = router;

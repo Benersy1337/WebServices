@@ -27,8 +27,12 @@ const putData = async () => {
         name: 'luan',
         email: 'luan@gmail.com',
         phone: '3424656',
+        createdAt:new Date().toLocaleString(),
     }
-    const response = await axios.put('http://localhost:3000/contacts/1',contacts);
+
+    const id = 1;
+
+    const response = await axios.put(`http://localhost:3000/contacts/${id}`,contacts);
 
     console.log('Resposta do servidor:', response.data);
   } catch (error) {
@@ -36,7 +40,7 @@ const putData = async () => {
   }
 };
 
-// putData();
+putData();
 
 const deleteData = async () => {
   try {
@@ -49,4 +53,4 @@ const deleteData = async () => {
   }
 };
 
-deleteData();
+// deleteData();

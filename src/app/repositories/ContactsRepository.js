@@ -1,8 +1,6 @@
-const { v4 } = require("uuid");
-
 let contacts = [
     {
-        id: v4(),
+        id: 1,
         name: 'Joao',
         email: 'joao@gmail.com',
         phone: '3424656',
@@ -18,6 +16,10 @@ let contacts = [
 ];
 
 class ContactsRepository{
+
+    getContacts(){
+        return contacts;
+    }
 
     findAll() {
         return new Promise((resolve) => resolve(contacts));
@@ -37,12 +39,10 @@ class ContactsRepository{
 
     delete(id){
         return new Promise((resolve) => {
-            contacts = contacts.filter((contact) => contact.id !== id); 
+            contacts = contacts.filter((contact) => contact.id != id); 
             resolve();
         });
     }
-
-    
 
     create({name, email, phone, createdAt}){
 
@@ -72,7 +72,7 @@ class ContactsRepository{
                 name,
                 email,
                 phone,
-                createdAt: new Date().toLocaleString(),
+                createdAt,
             };
 
             contacts = contacts.map((contact) => (

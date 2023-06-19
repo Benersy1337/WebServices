@@ -52,7 +52,8 @@ class ContactController {
 
     async update(request,response){
         // Editar um registro
-        const { id } = request.params;
+
+        const id = parseInt(request.params.id);
 
         const {name, email, phone, createdAt} = request.body;
 
@@ -68,7 +69,7 @@ class ContactController {
 
         const contactByEmail = await ContactsRepository.findByEmail(email);
 
-        if (contactByEmail && contactByEmail.id !== id){
+        if (contactByEmail && contactByEmail.id != id){
             return response.status(400).json({ error: 'This e-mail is already been taken'});
         }
 
@@ -97,6 +98,10 @@ class ContactController {
         response.sendStatus(204);
 
     }
+
+    async getByDate(request, response) {
+        
+      }
 }
 
 
