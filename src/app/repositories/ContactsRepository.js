@@ -47,7 +47,7 @@ class ContactsRepository{
     create({name, email, phone, createdAt}){
 
         const maxId = Math.max(...contacts.map((contact) => contact.id));
-        
+
         const nextId = maxId + 1;
 
         return new Promise((resolve) => {

@@ -35,19 +35,3 @@ const getDataId = async () => {
 };
 
 // getDataId();
-
-const getDataByDate = async () => {
-  try {
-
-    const response = await axios.get(`http://localhost:3000/contacts?`);
-    console.log('Resposta do servidor:', response.data);
-  } catch (error) {
-    if (error.response) {
-      console.error('Erro na solicitação:', error.response.data);
-    } else {
-      console.error('Erro na solicitação:', error.message);
-    }
-  }
-};
-
-getDataByDate()

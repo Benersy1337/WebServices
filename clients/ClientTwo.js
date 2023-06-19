@@ -17,7 +17,7 @@ const postData = async () => {
   }
 };
 
-// postData();
+postData();
 
 const putData = async () => {
   try {
@@ -40,7 +40,7 @@ const putData = async () => {
   }
 };
 
-putData();
+// putData();
 
 const deleteData = async () => {
   try {
